@@ -7,6 +7,9 @@ let cached = (global as any).mongoose || { conn: null, promise: null }
 export const connectToDb = async () => {
     if (cached.conn) return cached.conn;
 
+    console.log('running');
+    
+
     if (!MONGODB_URL) throw new Error('MONGO_URL MISSING')
 
     cached.promise = cached.promise || mongoose.connect(MONGODB_URL, {
